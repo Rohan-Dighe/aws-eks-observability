@@ -13,6 +13,21 @@ resource "null_resource" "configure_kubectl" {
   }
 }
 
+# Ensure Helm is installed
+resource "null_resource" "install_helm" {
+  provisioner "local-exec" {
+    command = <<EOT
+    if ! command -v helm &> /dev/null
+    then
+        echo "Helm not found, installing..."
+        curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+    else
+        echo "Helm is already installed."
+    fi
+    EOT
+  }
+}
+
 # Helm Release for Prometheus & Grafana deployment
 resource "helm_release" "kube_prometheus_stack" {
   name             = "prometheus"
