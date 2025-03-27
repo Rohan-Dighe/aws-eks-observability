@@ -91,6 +91,41 @@ This command should display the nodes in your EKS cluster.
 - **Prometheus**: Collects and stores metrics from your Kubernetes cluster.
 - **Grafana**: Visualizes the metrics collected by Prometheus. Pre-configured dashboards provide insights into cluster performance and health.
 
+- # Grafana Dashboard Setup
+
+Once Grafana is deployed, follow these steps to configure the Kubernetes monitoring dashboard.
+
+## 1. Access the Grafana Dashboard
+
+-   Open your web browser and navigate to the Grafana LoadBalancer URL displayed in the Terraform output.
+-   Log in with the following credentials:
+    -   **Username:** `admin`
+    -   **Password:** (Retrieved from the Terraform output or the `grafana_admin_password` output value)
+
+## 2. Import the Kubernetes Dashboard
+
+-   In Grafana, navigate to **Dashboards** → **Browse**.
+-   Click the **Import** button.
+-   Enter **Dashboard ID: 3119** and click **Load**.
+-   Select **Prometheus** as the data source and click **Import**.
+
+## 3. View the Dashboard
+
+-   Go to **Dashboards** → **Manage** and open the **Kubernetes Cluster Monitoring** dashboard.
+-   You will see visualizations such as:
+    -   CPU & Memory Usage per node
+    -   Pod Health & Status
+    -   Cluster Node Health & Resource Availability
+    -   Storage & Network Metrics
+
+## 4. Customize the Dashboard (Optional)
+
+-   You can customize the dashboard by:
+    -   Adding or removing panels.
+    -   Setting custom time ranges.
+    -   Changing visualization types.
+    -   Filtering metrics by namespaces, pods, or nodes.
+
 ## Cleanup
 
 To dismantle the infrastructure and avoid incurring additional costs, run:
