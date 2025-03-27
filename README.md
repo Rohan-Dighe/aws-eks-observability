@@ -1,12 +1,13 @@
 # AWS EKS Observability with Terraform
 
-This project automates the deployment of an Amazon Elastic Kubernetes Service (EKS) cluster integrated with Prometheus and Grafana for comprehensive observability. By leveraging Terraform, you can set up the entire infrastructure with a single command, ensuring a streamlined and efficient deployment process.
-
+This project automates the deployment of an Amazon Elastic Kubernetes Service (EKS) cluster along with observability tools, including Prometheus and Grafana, using Terraform. With a single terraform apply command, the infrastructure is provisioned, configured, and ready for monitoring.
 ## Features
 
 - **Automated Deployment**: Deploy an EKS cluster along with Prometheus and Grafana using Terraform.
 - **Immediate Access**: Upon deployment, access Grafana through a LoadBalancer service with credentials provided in the output.
 - **Integrated Configuration**: `kubectl` is automatically configured to interact with the newly created EKS cluster.
+- **Load Balancer Exposure**: Exposes the Grafana service via a LoadBalancer for easy access.
+- **Automated Output**: Displays the Grafana admin password and LoadBalancer URL after deployment.
 
 ## Prerequisites
 
